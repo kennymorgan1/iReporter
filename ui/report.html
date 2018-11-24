@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>iReport</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <h1><span class="indent">i</span>Reporter</h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="#" class="toggleNav" id="toggleNav">☰ Menu</a>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li class="active"><a href="report.html">Report</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </nav>
+                <div class="login">
+                    <a href="index.html">Log-out</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="signup">
+                        <div class="wrap">
+                        <h3 class='center'>Make a Report</h3>
+                        <form class="send">
+                            <div>
+                                <label>Name</label><br>
+                                <input type="text" placeholder="Name">
+                            </div>
+                            <div>
+                                <label>Email</label><br>
+                                <input type="email" placeholder="Email Address">
+                            </div>
+                            <div>
+                                <label>State</label><br>
+                                <select name="location" id="location">
+                                <option value="Abi" selected="selected">Abia</option>
+                                <option value="Ada">Adamawa</option>
+                                <option value="Akw">Akwa-Ibom</option>
+                                <option value="Ana">Anambra</option>
+                                <option value="Bau">Bauchi</option>
+                                <option value="Bay">Bayelsa</option>
+                                <option value="Ben">Benue</option>
+                                <option value="Bor">Borno</option>
+                                <option value="Cro">Cross River</option>
+                                <option value="Del">Delta</option>
+                                <option value="Ebo">Ebonyi</option>
+                                <option value="Edo">Edo</option>
+                                <option value="Eki">Ekiti</option>
+                                <option value="Enu">Enugu</option>
+                                <option value="Gom">Gombe</option>
+                                <option value="Imo">Imo</option>
+                                <option value="Jig">Jigawa</option>
+                                <option value="Kad">Kaduna</option>
+                                <option value="Kan">Kano</option>
+                                <option value="Kas">Kastina</option>
+                                <option value="Keb">Kebbi</option>
+                                <option value="Kog">Kogi</option>
+                                <option value="Kwa">Kwara</option>
+                                <option value="Lag">Lagos</option>
+                                <option value="Nas">Nasarawa</option>
+                                <option value="Nig">Niger</option>
+                                <option value="Ogu">Ogun</option>
+                                <option value="Ond">Ondo</option>
+                                <option value="Osu">Osun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Pla">Plateau</option>
+                                <option value="Riv">Rivers</option>
+                                <option value="Soc">Sokoto</option>
+                                <option value="Tar">Taraba</option>
+                                <option value="Yobe">Yobe</option>
+                                <option value="Zam">Zamfara</option>
+                                <option value="Fct">FCT</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Location</label><br>
+                                <div class="Latt">
+                                <label>Lat</label><input type="text" placeholder="Latittude">
+                                <label>Long</label><input type="text" placeholder="Longitude">
+                                </div>
+                            </div>
+                            <div>
+                                <label>Category</label><br>
+                                <select name="category" id="category" >
+                                <option value="cat1" selected="selected">Red-flag</option>
+                                <option value="cat2">Intervention</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Insert Image</label>
+                                <input type="file" name="pic" accept="image/*">
+                            </div>
+                            <div>
+                                <label>Insert Video</label>
+                                <input type="file" name="pic" accept="video/*">
+                            </div>
+                            <div>
+                                <label>A brief description</label><br>
+                                <textarea placeholder="comments......" rows="4"></textarea>
+                            </div>
+                            <button class="btn-login" type="submit">Send</button>
+                        </form>
+                        </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; <span class="indent">i</span>Reporter | mail@iReport.com</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
