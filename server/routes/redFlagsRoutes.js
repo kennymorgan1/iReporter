@@ -9,4 +9,8 @@ router.get('/:id', RedFlagsControllers.getRedFlagById);
 
 router.post('/', RedFlagsControllers.createRedFlag);
 
+router.patch('/:id/location', RedFlagsControllers.updateRedFlagLocation);
+
+router.patch('/:id/comment', RedFlagsControllers.updateRedFlagComment);
+
 export default router;
