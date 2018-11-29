@@ -7,11 +7,12 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "babel server -d dist",
+    "build": "babel --out-dir dist --ignore *.test.js server",
     "start": "npm run build && node dist/app.js",
     "dev": "npm run build && nodemon dist/app.js",
     "lint": "eslint server",
-    "test": "nyc mocha server/test.js --exit || true"
+    "test": "cross-env NODE_ENV=test nyc mocha server/test.js --exit || true",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -52,10 +53,10 @@
   "nyc": {
     "all": true,
     "check-coverage": true,
-    "branches": 100,
+    "branches": 50,
     "functions": 100,
-    "lines": 100,
-    "statements": 100,
+    "lines": 70,
+    "statements": 70,
     "reporter": [
       "text",
       "lcov"
@@ -68,5 +69,8 @@
     "include": [
       "server"
     ]
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2"
   }
 }
