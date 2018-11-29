@@ -7,6 +7,12 @@ class IncidentControllers {
     return res.status(200).json({ status: 200, datas });
   }
 
+  static getRedFlagById(req, res) {
+    const data = datas.find(c => c.id === parseFloat(req.params.id));
+    if (!data) return res.json({ status: 404, error: 'No red-flag with the given id' });
+    return res.status(200).json({ status: 200, data });
+  }
+
   static createRedFlag(req, res) {
     const schema = {
       location: Joi.string().min(5).required(),
