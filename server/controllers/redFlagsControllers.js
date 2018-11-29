@@ -42,6 +42,47 @@ class IncidentControllers {
     };
     return res.status(201).json({ status: 201, data });
   }
+
+  static updateRedFlagLocation(req, res) {
+    const incident = datas.find(c => c.id === parseFloat(req.params.id));
+    if (!incident) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
+    const schema = {
+      location: Joi.string().min(5).required(),
+    };
+    const result = Joi.validate(req.body, schema);
+
+    if (result.error) {
+      return res.status(400).json({ status: 400, error: result.error.details[0].message });
+    }
+    incident.location = req.body.location;
+    incident.comment = incident.comment;
+    const id = parseFloat(req.params.id);
+    const data = {
+      id,
+      message: 'updated red-flag record\'s location',
+    };
+    return res.status(201).json({ status: 201, data });
+  }
+
+  static updateRedFlagComment(req, res) {
+    const incident = datas.find(c => c.id === parseFloat(req.params.id));
+    if (!incident) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
+    const schema = {
+      comment: Joi.string().min(5).required(),
+    };
+    const result = Joi.validate(req.body, schema);
+
+    if (result.error) {
+      return res.status(400).json({ status: 400, error: result.error.details[0].message });
+    }
+    incident.comment = req.body.comment;
+    const id = parseFloat(req.params.id);
+    const data = {
+      id,
+      message: 'updated red-flag record\'s comment',
+    };
+    return res.status(201).json({ status: 201, data });
+  }
 }
 
 export default IncidentControllers;
