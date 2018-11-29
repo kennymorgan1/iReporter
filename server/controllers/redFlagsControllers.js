@@ -3,6 +3,10 @@ import datas from '../data/data';
 
 
 class IncidentControllers {
+  static getAllRedFlags(req, res) {
+    return res.status(200).json({ status: 200, datas });
+  }
+
   static createRedFlag(req, res) {
     const schema = {
       location: Joi.string().min(5).required(),
