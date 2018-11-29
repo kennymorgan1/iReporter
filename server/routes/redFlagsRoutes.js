@@ -13,4 +13,6 @@ router.patch('/:id/location', RedFlagsControllers.updateRedFlagLocation);
 
 router.patch('/:id/comment', RedFlagsControllers.updateRedFlagComment);
 
+router.delete('/:id', RedFlagsControllers.deleteRedFlag);
+
 export default router;
