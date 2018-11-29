@@ -83,6 +83,19 @@ class IncidentControllers {
     };
     return res.status(201).json({ status: 201, data });
   }
+
+  static deleteRedFlag(req, res) {
+    const incident = datas.find(c => c.id === parseFloat(req.params.id));
+    if (!incident) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
+    const index = datas.indexOf(incident);
+    datas.splice(index, 1);
+    const id = parseFloat(req.params.id);
+    const data = {
+      id,
+      message: 'red-flag record has been deleted',
+    };
+    return res.json({ status: 201, data });
+  }
 }
 
 export default IncidentControllers;
