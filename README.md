@@ -74,6 +74,8 @@ Credits to Andela
 
 ### Travis badge [![Build Status](https://travis-ci.com/kennymorgan1/iReporter.svg?branch=develop)](https://travis-ci.com/kennymorgan1/iReporter)
 
+### Code-climate [![Maintainability](https://api.codeclimate.com/v1/badges/536e10d46300b994a239/maintainability)](https://codeclimate.com/github/kennymorgan1/iReporter/maintainability)
+
 ### License
 ```
 MIT (c) 2018 Kenneth
