@@ -9,7 +9,7 @@ class IncidentControllers {
 
   static getRedFlagById(req, res) {
     const data = datas.find(b => b.id === parseFloat(req.params.id));
-    if (!data) return res.json({ status: 404, error: 'No red-flag with the given id' });
+    if (!data) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
     return res.status(200).json({ status: 200, data });
   }
 
@@ -43,6 +43,7 @@ class IncidentControllers {
   static updateRedFlagLocation(req, res) {
     const incident = datas.find(c => c.id === parseFloat(req.params.id));
     if (!incident) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
+
     const schema = {
       location: Joi.string().min(5).required(),
     };
@@ -51,18 +52,19 @@ class IncidentControllers {
     if (error) {
       return res.status(400).json({ status: 400, error: error.details[0].message });
     }
-    incident.location = req.body.location;
 
+    incident.location = req.body.location;
     const data = {
       id: incident.id,
       message: 'updated red-flag record\'s location',
     };
-    return res.status(200).json({ status: 200, data });
+    return res.status(201).json({ status: 201, data });
   }
 
   static updateRedFlagComment(req, res) {
     const incident = datas.find(d => d.id === parseFloat(req.params.id));
     if (!incident) return res.status(404).json({ status: 404, error: 'No red-flag with the given id' });
+
     const schema = {
       comment: Joi.string().min(5).required(),
     };
@@ -71,13 +73,13 @@ class IncidentControllers {
     if (error) {
       return res.status(400).json({ status: 400, error: error.details[0].message });
     }
-    incident.comment = req.body.comment;
 
+    incident.comment = req.body.comment;
     const data = {
       id: incident.id,
       message: 'updated red-flag record\'s comment',
     };
-    return res.status(200).json({ status: 200, data });
+    return res.status(201).json({ status: 201, data });
   }
 
   static deleteRedFlag(req, res) {
@@ -91,7 +93,7 @@ class IncidentControllers {
       id: incident.id,
       message: 'red-flag record has been deleted',
     };
-    return res.status(200).json({ status: 200, data });
+    return res.status(201).json({ status: 201, data });
   }
 }
 

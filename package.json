@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "babel --out-dir dist --ignore *.test.js server",
+    "build": "babel --out-dir dist server",
     "start": "npm run build && node dist/app.js",
     "dev": "npm run build && nodemon dist/app.js",
     "lint": "eslint server",
@@ -35,28 +35,29 @@
     "babel-loader": "^8.0.4",
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-watch": "^4.0.2",
     "express": "^4.16.4",
     "joi": "^14.0.4",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.6",
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "nyc": "^13.1.0",
-    "babel-plugin-istanbul": "^5.1.0"
+    "nyc": "^13.1.0"
   },
   "nyc": {
     "all": true,
     "check-coverage": true,
-    "branches": 50,
+    "branches": 100,
     "functions": 100,
-    "lines": 70,
-    "statements": 70,
+    "lines": 100,
+    "statements": 100,
     "reporter": [
       "text",
       "lcov"
@@ -69,8 +70,5 @@
     "include": [
       "server"
     ]
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.2"
   }
 }
