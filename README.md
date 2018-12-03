@@ -78,5 +78,5 @@ Credits to Andela
 
 ### License
 ```
-MIT (c) 2018 Kenneth
+MIT (c) 2018 Kenneth.
 ```
