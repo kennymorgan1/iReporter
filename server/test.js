@@ -7,6 +7,18 @@ chai.use(chaiHttp);
 const should = chai.should();
 
 describe('red-flag', () => {
+  // test the root folder
+  describe('GET/ root', () => {
+    it('it should GET the root route', (done) => {
+      chai.request(app)
+        .get('/')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          done();
+        });
+    });
+  });
   // test the get all route
   describe('GET/ red-flags', () => {
     it('it should GET all the red-flags', (done) => {
