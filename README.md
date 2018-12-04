@@ -2,7 +2,7 @@
 
 ### Travis badge [![Build Status](https://travis-ci.com/kennymorgan1/iReporter.svg?branch=develop)](https://travis-ci.com/kennymorgan1/iReporter)
 
-### Code-climate [![Maintainability](https://api.codeclimate.com/v1/badges/536e10d46300b994a239/maintainability)](https://codeclimate.com/github/kennymorgan1/iReporter/maintainability)
+### Code-climate <a href="https://codeclimate.com/github/kennymorgan1/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/536e10d46300b994a239/maintainability" /></a>
 # iReporter
 ```
 iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public.
