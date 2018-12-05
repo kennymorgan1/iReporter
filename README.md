@@ -1,9 +1,19 @@
-[![Coverage Status](https://coveralls.io/repos/github/kennymorgan1/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/kennymorgan1/iReporter?branch=develop) [![Build Status](https://travis-ci.com/kennymorgan1/iReporter.svg?branch=develop)](https://travis-ci.com/kennymorgan1/iReporter) <a href="https://codeclimate.com/github/kennymorgan1/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/536e10d46300b994a239/maintainability" /></a>
 # iReporter
+[![Coverage Status](https://coveralls.io/repos/github/kennymorgan1/iReporter/badge.svg?branch=develop)](https://coveralls.io/github/kennymorgan1/iReporter?branch=develop) [![Build Status](https://travis-ci.com/kennymorgan1/iReporter.svg?branch=develop)](https://travis-ci.com/kennymorgan1/iReporter) <a href="https://codeclimate.com/github/kennymorgan1/iReporter/maintainability"><img src="https://api.codeclimate.com/v1/badges/536e10d46300b994a239/maintainability" /></a>
 ```
 iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public.
 ```
-
+## Features
+```
+Users can create an account
+Users can log in to their accounts
+Users can create a Red-flag
+Users can edit a Red-Flag
+Users can delete a Red-flag
+Users can Log out
+Admin can Log in
+Admin can change the status of a Red-flag
+```
 ## Getting Started
 ```
 Clone the git repository by running the command
@@ -32,7 +42,7 @@ You need to have the following installed
 
 ### Running the test
 ```
-All Api endpoints are tested using postman
+All Api endpoints are tested using postman or Heroku
 ```
 
 ### Test breakdown
@@ -60,11 +70,11 @@ Delete a red-flag report
 ```
 DELETE localhost:3000/api/v1/red-flags/id
 ```
+## Gh- pages
+https://kennymorgan1.github.io/iReporter
 
-#### Contribute
-```
-Make a pull request with the PR template
-```
+## Heroku
+https://kennyireporter.herokuapp.com/
 
 ### Credit
 ```
