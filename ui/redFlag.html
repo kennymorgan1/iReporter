@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/stylereport.css">
+    <title>iReport</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <div class="logo">
+                  <a href="home.html"><h1><span class="indent">i</span>Reporter</h1></a>
+                </div>
+                <nav class="header-nav">
+                    <a href="#" class="toggleNav" id="toggleNav">☰ Menu</a>
+                    <ul>
+                        <li class="active"><a href="redFlag.html">Red-Flag</a></li>
+                        <li><a href="intervention.html">Intervention</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </nav>
+                <div class="login">
+                    <a href="index.html">Log-out</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="title">
+                <div class="stats">
+                  <p>No of Red-Flags by you</p>
+                  <p>10</p>
+                </div>
+            </section>
+            <section class="signup">
+                <div class="wrap">
+                <h3 class='center'>Make a Report</h3>
+                <form class="send">
+                    <div>
+                        <label>Location</label><br>
+                        <div class="Latt">
+                        <label>Lat</label><input type="text" placeholder="Latittude">
+                        <label>Long</label><input type="text" placeholder="Longitude">
+                        </div>
+                    </div>
+                    <div>
+                        <label>Category</label><br>
+                        <select name="category" id="category" >
+                        <option value="cat1" selected="selected">Red-flag</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Insert Image</label>
+                        <input type="file" name="pic" accept="image/*">
+                    </div>
+                    <div>
+                        <label>Insert Video</label>
+                        <input type="file" name="pic" accept="video/*">
+                    </div>
+                    <div>
+                        <label>A brief description</label><br>
+                        <textarea placeholder="comments......" rows="4"></textarea>
+                    </div>
+                    <button class="btn-login" type="submit">Send</button>
+                </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; <span class="indent">i</span>Reporter | mail@iReport.com</p>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
