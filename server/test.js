@@ -19,6 +19,17 @@ describe('red-flag', () => {
         });
     });
   });
+  // test for an invalid endpoint
+  describe('Unknown route', () => {
+    it('it should return error when an unknown endpoint is hit', (done) => {
+      chai.request(app)
+        .get('/api/v1/red-flag')
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+  });
   // test the get all route
   describe('GET/ red-flags', () => {
     it('it should GET all the red-flags', (done) => {
@@ -27,7 +38,7 @@ describe('red-flag', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
-          res.body.should.have.property('datas');
+          res.body.should.have.property('data');
           done();
         });
     });

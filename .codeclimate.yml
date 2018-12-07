@@ -1,6 +1,7 @@
 version: "2"
 exclude_paths:
 - "server/data"
+- "server/test"
 checks:
  return-statements:
    enabled: false
