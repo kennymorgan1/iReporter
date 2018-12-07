@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import redFlagsRoutes from './routes/redFlagsRoutes';
+import redFlagsRoutes from './routes/routes';
 
 const app = express();
 
@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1/red-flags', redFlagsRoutes);
+
+
+app.all('*', (req, res) => {
+  return res.status(404).json({ status: 404, error: 'Page not found' });
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

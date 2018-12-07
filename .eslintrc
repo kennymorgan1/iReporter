@@ -1,14 +1,14 @@
 {
-    "root": true,
+  "root": true,
 
-    "extends": "airbnb-base",
-    
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "linebreak-style": 0
-    }
+  "extends": "airbnb-base",
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "linebreak-style": 0
   }
+}
