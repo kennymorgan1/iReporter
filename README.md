@@ -45,31 +45,31 @@ You need to have the following installed
 All Api endpoints are tested using postman or Heroku
 ```
 
-### Test breakdown
-Get all red-flags report
-```
+## Test breakdown
+### Get all red-flags report
 GET localhost:3000/api/v1/red-flags
-```
-Get  a specific red-flag report
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags
+
+### Get  a specific red-flag report
 GET localhost:3000/api/v1/red-flags/id
-```
-Create a red-flag report
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags/:id
+
+### Create a red-flag report
 POST localhost:3000/api/v1/red-flags
-```
-Update a red-flag report location
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags
+
+### Update a red-flag report location
 PATCH localhost:3000/api/v1/red-flags/id/location
-```
-Update a red-flag report comment
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags/:id/location
+
+### Update a red-flag report comment
 PATCH localhost:3000/api/v1/red-flags/id/comment
-```
-Delete a red-flag report
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags/:id/comment
+
+### Delete a red-flag report
+
 DELETE localhost:3000/api/v1/red-flags/id
-```
+Heroku https://kennyireporter.herokuapp.com/api/v1/red-flags/:id
 ## Gh- pages
 https://kennymorgan1.github.io/iReporter
 
