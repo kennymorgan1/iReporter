@@ -1,7 +1,7 @@
-import datas from '../data/data';
+import datas from '../models/data';
 
 
-class IncidentControllers {
+class RedFlagControllers {
   static getAllRedFlags(req, res) {
     const data = datas;
     return res.status(200).json({ status: 200, data });
@@ -69,4 +69,4 @@ class IncidentControllers {
   }
 }
 
-export default IncidentControllers;
+export default RedFlagControllers;

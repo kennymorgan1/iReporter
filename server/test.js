@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from './app';
-import datas from './data/data';
+import datas from './models/data';
 
 chai.use(chaiHttp);
 const should = chai.should();
@@ -60,7 +60,7 @@ describe('red-flag', () => {
     });
     it('it should POST a red-flag with fields', (done) => {
       const incident = {
-        location: '10N3E',
+        location: '0.8765, 9.765',
         comment: 'no comment',
       };
       chai.request(app)
@@ -118,7 +118,7 @@ describe('red-flag', () => {
     it('it should update a red-flag location', (done) => {
       const data = datas[0];
       const incident = {
-        location: '10N3E',
+        location: '0.8765, 9.765',
       };
       chai.request(app)
         .patch('/api/v1/red-flags/' + data.id + '/location')

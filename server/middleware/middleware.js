@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator/check';
-import datas from '../data/data';
+import datas from '../models/data';
 
 class Middlewares {
   static notFound(req, res, next) {
