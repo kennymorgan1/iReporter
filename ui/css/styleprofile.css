@@ -142,6 +142,7 @@ td a {
   display: flex;
   justify-content: center;
   margin: auto;
+  flex-direction: column;
 }
 .page {
   background: #111;
@@ -151,8 +152,6 @@ td a {
   align-items: center;
   color: #f3f3f3;
   height: 30px;
-  margin: -15px;
-  margin-right: -70px;
 }
 .page a {
   color: #fff;
