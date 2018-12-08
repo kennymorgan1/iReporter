@@ -1,19 +1,19 @@
-import datas from '../models/data';
+import incidents from '../models/data';
 
 
 class RedFlagControllers {
   static getAllRedFlags(req, res) {
-    const data = datas;
+    const data = incidents;
     return res.status(200).json({ status: 200, data });
   }
 
   static getRedFlagById(req, res) {
-    const data = datas.find(singleData => singleData.id === parseFloat(req.params.id));
+    const data = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
     return res.status(200).json({ status: 200, data });
   }
 
   static createRedFlag(req, res) {
-    const id = datas.length + 1;
+    const id = incidents.length + 1;
     const incident = {
       id,
       createdOn: Date(),
@@ -25,7 +25,7 @@ class RedFlagControllers {
       Videos: '[Images, Images]',
       comment: req.body.comment,
     };
-    datas.push(incident);
+    incidents.push(incident);
     const data = {
       id,
       message: 'Created red-flag record',
@@ -34,38 +34,38 @@ class RedFlagControllers {
   }
 
   static updateRedFlagLocation(req, res) {
-    const incident = datas.find(singleData => singleData.id === parseFloat(req.params.id));
+    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
 
     incident.location = req.body.location;
     const data = {
       id: incident.id,
       message: 'Updated red-flag record\'s location',
     };
-    return res.status(201).json({ status: 201, data });
+    return res.status(200).json({ status: 200, data });
   }
 
   static updateRedFlagComment(req, res) {
-    const incident = datas.find(singleData => singleData.id === parseFloat(req.params.id));
+    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
 
     incident.comment = req.body.comment;
     const data = {
       id: incident.id,
       message: 'Updated red-flag record\'s comment',
     };
-    return res.status(201).json({ status: 201, data });
+    return res.status(200).json({ status: 200, data });
   }
 
   static deleteRedFlag(req, res) {
-    const incident = datas.find(singleData => singleData.id === parseFloat(req.params.id));
+    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
 
-    const index = datas.indexOf(incident);
-    datas.splice(index, 1);
+    const index = incidents.indexOf(incident);
+    incidents.splice(index, 1);
 
     const data = {
       id: incident.id,
       message: 'red-flag record has been deleted',
     };
-    return res.status(201).json({ status: 201, data });
+    return res.status(200).json({ status: 200, data });
   }
 }
 

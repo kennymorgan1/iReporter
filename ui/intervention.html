@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/stylereport.css">
+    <link rel="stylesheet" href="css/styleprofile.css">
+    <link rel="stylesheet" href="css/stylehome.css">
     <title>iReport</title>
 </head>
 <body>
@@ -15,12 +17,15 @@
                   <a href="home.html"><h1><span class="indent">i</span>Reporter</h1></a>
                 </div>
                 <nav class="header-nav">
-                    <a href="#" class="toggleNav" id="toggleNav">☰ Menu</a>
-                    <ul>
-                        <li><a href="redFlag.html">Red-Flag</a></li>
-                        <li class="active"><a href="intervention.html">Intervention</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                    </ul>
+                  <a href="report.html">Report</a>
+                  <a href="profile.html">Profile</a>
+                  <div class="dropdown">
+                    <button class="dropbtn">Incidents<i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                      <a href="redFlag.html">Red Flags</a>
+                      <a href="intervention.html">Intervention</a>
+                    </div>
+                  </div>
                 </nav>
                 <div class="login">
                     <a href="index.html">Log-out</a>
@@ -28,43 +33,83 @@
             </div>
         </header>
         <main>
-          <section class="title">
-            <div class="stats">
-              <p>No of Interventions by you</p>
-              <p>25</p>
-            </div>
-          </section>
-          <section class="signup">
-            <div class="wrap">
-            <h3 class='center'>Make a Report</h3>
-            <form class="send">
-                <div>
-                    <label>Location</label><br>
-                    <div class="Latt">
-                    <label>Lat</label><input type="text" placeholder="Latittude">
-                    <label>Long</label><input type="text" placeholder="Longitude">
-                    </div>
+            <section class="title">
+                <div class="stats">
+                  <p>No of Interventions by you</p>
+                  <p>10</p>
                 </div>
-                <div>
-                    <label>Category</label><br>
-                    <select name="category" id="category" >
-                    <option value="cat2" selected="selected">Intervention</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Insert Image</label>
-                    <input type="file" name="pic" accept="image/*">
-                </div>
-                <div>
-                    <label>Insert Video</label>
-                    <input type="file" name="pic" accept="video/*">
-                </div>
-                <div>
-                    <label>A brief description</label><br>
-                    <textarea placeholder="comments......" rows="4"></textarea>
-                </div>
-                <button class="btn-login" type="submit">Send</button>
-            </form>
+            </section>
+            <section class="table">
+              <div class="res-table">
+                  <table>
+                      <tbody>
+                          <tr>
+                              <th>Report ID</th>
+                              <th>State</th>
+                              <th>Latittude</th>
+                              <th>Longitude</th>
+                              <th>Category</th>
+                              <th>Status</th>
+                          </tr>
+                          <tr class='tr' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Rejected</td>
+                          </tr>
+                          <tr class='tr1' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Under Investigation</td>
+                          </tr>
+                          <tr class='tr2' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Resolved</td>
+                          </tr>
+                          <tr class='tr3' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Rejected</td>
+                          </tr>
+                          <tr class='tr4' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Under Investigation</td>
+                          </tr>
+                          <tr class='tr5' data-href="edit.html">
+                              <td>1234</td>
+                              <td>Lagos</td>
+                              <td>10N</td>
+                              <td>4E</td>
+                              <td>Intervention</td>
+                              <td>Resolved</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="page">
+                <p class="arrow">
+                    <a href="#"><span>← Prev</span></a>
+                </p>
+                <p> page 1, 2, 3, 4 ....... 10 </p>
+                <p class="arrow">
+                    <a href="#"><span>Next →</span></a>
+                </p>
             </div>
           </section>
         </main>

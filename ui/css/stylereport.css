@@ -44,35 +44,6 @@ header{
   text-align: center;
 }
 
-.header-nav{
-  display: flex;
-  flex-wrap: wrap;
-}
-.header-nav ul{
-  display: flex;
-  list-style: none;
-  width: 100%;
-  text-align: center;
-  order: 1;
-  flex-wrap: wrap;
-}
-.header-nav li{
-  flex: 1;
-}
-.header-nav ul li a{
-  color: #fff;
-  font-size: 18px;
-  margin-left: 20px;
-  width: 100%;
-  display: block;
-}
-.toggleNav {
-  display: none;
-}
-
-.header-nav ul li a:hover, .header-nav ul li.active a, a:hover{
-  color: #FF5A5F;
-}
 .login{
   padding-left: 10px;
   font-size: 15px;
@@ -128,7 +99,7 @@ footer{
   min-width: 96%;
   min-height: 35px;
   max-width: 96%;
-  margin-bottom: 10px;
+  margin: 10px 0;
   border-radius: 5px;
   border: 1px solid silver;
   padding: 5px;
@@ -136,7 +107,7 @@ footer{
 .wrap select{
   width: 98%;
   height: 45px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   border-radius: 5px;
   border: 1px solid silver;
   padding: 5px;
