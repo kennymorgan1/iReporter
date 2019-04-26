@@ -48,7 +48,7 @@ const RedFlagControllers = {
     const {
       location, images, videos, comment,
     } = req.body;
-    const createdOn = new Date();
+    const createdOn = new Date().toISOString().slice(0, 19).replace('T', ' ');
     const createdBy = Math.floor((Math.random() * 5) + 1);
     const type = 'red-flag';
     const status = 'under investigation';
