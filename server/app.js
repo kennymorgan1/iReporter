@@ -36,9 +36,7 @@ app.get('/', (req, res) => {
 app.use('/api/v1/red-flags', redFlagsRoutes);
 
 
-app.use('*', (req, res) => {
-  return res.status(404).json({ status: 404, error: 'Page not found' });
-});
+app.use('*', (req, res) => res.status(404).json({ status: 404, error: 'Page not found' }));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(chalk.default.yellow.bgBlack.bold(`Listening on port ${port}...`)));

@@ -8,11 +8,13 @@
   },
   "scripts": {
     "build": "babel --out-dir dist server",
-    "start": "npm run build && node dist/app.js",
+    "start": "npm run create-tables && npm run build && node dist/app.js",
     "dev": "npm run build && nodemon dist/app.js",
     "lint": "eslint server",
-    "test": "cross-env NODE_ENV=test nyc mocha server/test.js --exit || true",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+    "test": "npm run drop-tables && npm run create-tables && NODE_ENV=test nyc mocha server/test.js --exit || true",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "create-tables": "babel-node server/models/createTables",
+    "drop-tables": "babel-node server/models/dropTables"
   },
   "repository": {
     "type": "git",

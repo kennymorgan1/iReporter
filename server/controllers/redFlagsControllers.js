@@ -45,29 +45,22 @@ const RedFlagControllers = {
   },
 
   async createRedFlag(req, res) {
-    const sql = 'INSERT INTO records (createdon, createdby, type, location, status, images, videos, comment) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)';
-
     const {
       location, images, videos, comment,
     } = req.body;
-    const createdon = new Date();
-    const createdby = Math.floor((Math.random() * 5) + 1);
+    const createdOn = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    const createdBy = Math.floor((Math.random() * 5) + 1);
     const type = 'red-flag';
     const status = 'under investigation';
 
-    const params = [
-      createdon, createdby, type, location, status, images, videos, comment,
-    ];
-    // new Date(),
-    // Math.floor((Math.random() * 5) + 1),
-    // 'red-flag',
-    // location,
-    // 'under investigation',
-    // '[Images, Images]',
-    // '[Images, Images]',
-    // comment,
+    const sql = `
+    INSERT INTO records(createdOn, createdBy, type, location, status, images, videos, comment)
+    VALUES ('${createdOn}', '${createdBy}', '${type}', '${location}', '${status}', ARRAY[${images}]::TEXT[], ARRAY[${videos}]::TEXT[], '${comment}')
+    RETURNING *
+  `;
+
     try {
-      const { rows } = await client.query(sql, params);
+      const { rows } = await client.query(sql);
       console.log(rows[0]);
       return res.status(201).json({
         status: 201,
@@ -83,38 +76,89 @@ const RedFlagControllers = {
   },
 
   async updateRedFlagLocation(req, res) {
-    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
+    const location = req.body;
+    const { id } = req.params;
+    const fieldName = 'location';
 
-    incident.location = req.body.location;
-    const data = {
-      id: incident.id,
-      message: 'Updated red-flag record\'s location',
-    };
-    return res.status(200).json({ status: 200, data });
+    const sql = `UPDATE records SET ${fieldName} = '${location}'
+    WHERE id = ${id}
+    RETURNING *`;
+
+    try {
+      const { rows } = await client.query(sql);
+      console.log(rows[0]);
+      return res.status(200).json({
+        status: 200,
+        result: req.body,
+        data: [{
+          id,
+          message: 'Updated red-flag record\'s location',
+        }],
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({
+        status: 400,
+        error,
+      });
+    }
   },
 
   async updateRedFlagComment(req, res) {
-    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
+    const comment = req.body;
+    const { id } = req.params;
+    const fieldName = 'comment';
 
-    incident.comment = req.body.comment;
-    const data = {
-      id: incident.id,
-      message: 'Updated red-flag record\'s comment',
-    };
-    return res.status(200).json({ status: 200, data });
+    const sql = `UPDATE records SET ${fieldName} = '${comment}'
+    WHERE id = ${id}
+    RETURNING *`;
+
+    try {
+      const { rows } = await client.query(sql);
+      console.log(rows[0]);
+      return res.status(200).json({
+        status: 200,
+        result: req.body,
+        data: [{
+          id,
+          message: 'Updated red-flag record\'s comment',
+        }],
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({
+        status: 400,
+        error,
+      });
+    }
   },
 
   async deleteRedFlag(req, res) {
-    const incident = incidents.find(singleData => singleData.id === parseFloat(req.params.id));
+    const { id } = req.params;
+    const sql = `
+    DELETE FROM records
+    WHERE id = ${Number(id)}
+    RETURNING id
+  `;
 
-    const index = incidents.indexOf(incident);
-    incidents.splice(index, 1);
-
-    const data = {
-      id: incident.id,
-      message: 'red-flag record has been deleted',
-    };
-    return res.status(200).json({ status: 200, data });
+    try {
+      const { rows } = await client.query(sql);
+      console.log(rows[0]);
+      return res.status(200).json({
+        status: 200,
+        result: req.body,
+        data: [{
+          id,
+          message: 'Red-flag record has been deleted.',
+        }],
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({
+        status: 400,
+        error,
+      });
+    }
   },
 };
 
