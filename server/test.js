@@ -4,7 +4,7 @@ import app from './app';
 import datas from './models/data';
 
 chai.use(chaiHttp);
-const should = chai.should();
+chai.should();
 
 describe('red-flag', () => {
   // test the root folder
@@ -62,6 +62,8 @@ describe('red-flag', () => {
       const incident = {
         location: '0.8765, 9.765',
         comment: 'no comment',
+        images: '',
+        videos: '',
       };
       chai.request(app)
         .post('/api/v1/red-flags')
@@ -79,7 +81,7 @@ describe('red-flag', () => {
     it('it should GET a red-flag by the given id', (done) => {
       const data = datas[0];
       chai.request(app)
-        .get('/api/v1/red-flags/' + data.id)
+        .get(`/api/v1/red-flags/${data.id}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -92,7 +94,7 @@ describe('red-flag', () => {
         id: 'fakeId',
       };
       chai.request(app)
-        .get('/api/v1/red-flags/' + data.id)
+        .get(`/api/v1/red-flags/${data.id}`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -108,7 +110,7 @@ describe('red-flag', () => {
         id: 'fakeId',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/location')
+        .patch(`/api/v1/red-flags/${data.id}/location`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -121,10 +123,10 @@ describe('red-flag', () => {
         location: '0.8765, 9.765',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/location')
+        .patch(`/api/v1/red-flags/${data.id}/location`)
         .send(incident)
         .end((err, res) => {
-          res.should.have.status(201);
+          res.should.have.status(200);
           res.body.should.be.a('object');
           done();
         });
@@ -135,7 +137,7 @@ describe('red-flag', () => {
         location: '',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/location')
+        .patch(`/api/v1/red-flags/${data.id}/location`)
         .send(incident)
         .end((err, res) => {
           res.should.have.status(400);
@@ -150,7 +152,7 @@ describe('red-flag', () => {
         id: 'fakeId',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/comment')
+        .patch(`/api/v1/red-flags/${data.id}/comment`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -163,10 +165,10 @@ describe('red-flag', () => {
         comment: 'No comment',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/comment')
+        .patch(`/api/v1/red-flags/${data.id}/comment`)
         .send(incident)
         .end((err, res) => {
-          res.should.have.status(201);
+          res.should.have.status(200);
           res.body.should.be.a('object');
           done();
         });
@@ -177,7 +179,7 @@ describe('red-flag', () => {
         comment: '',
       };
       chai.request(app)
-        .patch('/api/v1/red-flags/' + data.id + '/comment')
+        .patch(`/api/v1/red-flags/${data.id}/comment`)
         .send(incident)
         .end((err, res) => {
           res.should.have.status(400);
@@ -193,7 +195,7 @@ describe('red-flag', () => {
         is: 'fakeId',
       };
       chai.request(app)
-        .delete('/api/v1/red-flags/' + data.Id)
+        .delete(`/api/v1/red-flags/${data.Id}`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -204,9 +206,9 @@ describe('red-flag', () => {
     it('it should DELETE a red-flag by the given id', (done) => {
       const data = datas[0];
       chai.request(app)
-        .delete('/api/v1/red-flags/' + data.id)
+        .delete(`/api/v1/red-flags/${data.id}`)
         .end((err, res) => {
-          res.should.have.status(201);
+          res.should.have.status(200);
           res.body.should.be.a('object');
           res.body.should.have.a.property('status');
           done();

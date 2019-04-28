@@ -1,6 +1,5 @@
 import { Client } from 'pg';
 import dotenv from 'dotenv';
-import incidents from '../models/data';
 
 dotenv.config();
 
@@ -17,7 +16,7 @@ const RedFlagControllers = {
       const { rows } = await client.query(sql);
       return res.status(200).json({
         status: 200,
-        result: rows,
+        data: rows,
       });
     } catch (error) {
       return res.status(400).send(error);
@@ -37,7 +36,7 @@ const RedFlagControllers = {
       }
       return res.status(200).json({
         status: 200,
-        result: rows[0],
+        data: rows[0],
       });
     } catch (error) {
       return error;
@@ -64,7 +63,7 @@ const RedFlagControllers = {
       console.log(rows[0]);
       return res.status(201).json({
         status: 201,
-        result: req.body,
+        data: req.body,
       });
     } catch (error) {
       console.log(error);
@@ -89,7 +88,6 @@ const RedFlagControllers = {
       console.log(rows[0]);
       return res.status(200).json({
         status: 200,
-        result: req.body,
         data: [{
           id,
           message: 'Updated red-flag record\'s location',
@@ -118,7 +116,6 @@ const RedFlagControllers = {
       console.log(rows[0]);
       return res.status(200).json({
         status: 200,
-        result: req.body,
         data: [{
           id,
           message: 'Updated red-flag record\'s comment',
@@ -146,7 +143,6 @@ const RedFlagControllers = {
       console.log(rows[0]);
       return res.status(200).json({
         status: 200,
-        result: req.body,
         data: [{
           id,
           message: 'Red-flag record has been deleted.',
