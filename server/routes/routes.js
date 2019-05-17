@@ -1,6 +1,6 @@
 import express from 'express';
 import middlewares from '../middleware/middleware';
-import { newReport, updateComment, updateLocation } from '../middleware/validators'
+import { newReport, updateComment, updateLocation } from '../middleware/validators';
 import RedFlagsControllers from '../controllers/redFlagsControllers';
 
 const router = express.Router();

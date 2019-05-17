@@ -10,8 +10,7 @@ export const userTable = `
     email varchar(50) UNIQUE,
     registered varchar(30),
     isadmin boolean
-  );
-`;
+  )`;
 
 export const recordTable = `
   CREATE TABLE IF NOT EXISTS Records (
@@ -24,5 +23,4 @@ export const recordTable = `
     Images text[][],
     Videos text[][],
     comment varchar(5000)
-  )
-`;
+  )`;
